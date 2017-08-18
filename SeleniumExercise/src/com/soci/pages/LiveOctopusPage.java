@@ -12,8 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 public class LiveOctopusPage {
 	private WebDriver driver;
 	private WebDriverWait wait;
-	private String selectedOptionText;
-	private String selectedOptionValue;
+
 
 	String workingDir = System.getProperty("user.dir");
 
@@ -23,27 +22,25 @@ public class LiveOctopusPage {
 	// Locators
 
 	// Combo Box
-//	@FindBy(how = How.ID, using = "shirt")
-	@FindBy(id="shirt")
+	@FindBy(how = How.ID, using = "shirt")
 	private WebElement shirtDropdown;
 
 	// Text Area
-//	@FindBy(how = How.ID, using = "theText")
-	@FindBy(id="theText")
+	@FindBy(how = How.ID, using = "theText")
 	private WebElement textArea;
 
 	 public void selectShirtByValue(String value){
 	 Select selectShirt = new Select(shirtDropdown);
 	 selectShirt.selectByValue(value);
 
-//	 logSelections(selectShirt);
+	 logSelections(selectShirt);
 	 }
 	
 	 public void selectShirtByIndex(int index){
 	 Select selectShirt = new Select(shirtDropdown);
 	 selectShirt.selectByIndex(index);
 	 
-//	 logSelections(selectShirt);
+	 logSelections(selectShirt);
 	 }
 	 
 	 private String getSelectedOptionText(Select select){
@@ -61,10 +58,7 @@ public class LiveOctopusPage {
 	// Constructor
 	public LiveOctopusPage(WebDriver driver) {
 		this.driver = driver;
-		System.out.println("driver");
-		System.out.println("again");
 		driver.get(location);
-		System.out.println("location got");
 		// Initialize Elements
 		PageFactory.initElements(driver, this);
 	}
