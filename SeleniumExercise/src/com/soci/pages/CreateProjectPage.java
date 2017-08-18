@@ -71,34 +71,49 @@ public class CreateProjectPage {
 	}
 
 	public void enterProjectName(String projectName) {
+		wait.until(ExpectedConditions.elementToBeClickable(projectNameInput));
+		projectNameInput.clear();
 		projectNameInput.sendKeys(projectName);
 	}
 
 	public void enterPersonName(String personName) {
+		wait.until(ExpectedConditions.elementToBeClickable(personNameInput));
+		personNameInput.clear();
 		personNameInput.sendKeys(personName);
 	}
 
 	public void enterPersonEmail(String personEmail) {
+		wait.until(ExpectedConditions.elementToBeClickable(personEmailInput));
+		personEmailInput.clear();
 		personEmailInput.sendKeys(personEmail);
 	}
 
 	public void enterPersonPhone(String personPhone) {
+		wait.until(ExpectedConditions.elementToBeClickable(personPhoneInput));
+		personPhoneInput.clear();
 		personPhoneInput.sendKeys(personPhone);
 	}
 
 	public void enterPersonWebsite(String personWebsite) {
+		wait.until(ExpectedConditions.elementToBeClickable(personWebsiteInput));
+		personWebsiteInput.clear();
 		personWebsiteInput.sendKeys(personWebsite);
 	}
 
 	public void enterPersonCity(String personCity) {
+		wait.until(ExpectedConditions.elementToBeClickable(personCityInput));
+		personCityInput.clear();
 		personCityInput.sendKeys(personCity);
 	}
 
 	public void enterPersonPostalCode(String personPostalCode) {
+		wait.until(ExpectedConditions.elementToBeClickable(personPostalCodeInput));
+		personPostalCodeInput.clear();
 		personPostalCodeInput.sendKeys(personPostalCode);
 	}
 
 	public void clickProjectCreateButton() {
+		waitUntilProjectCreateButtonClickable();
 		projectCreateButton.click();
 	}
 
