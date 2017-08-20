@@ -20,21 +20,14 @@ public class LiveOctopusTest {
 	}
 
 	@Test
-	public void calculateLiveOctopus() {
+	public void calculateLiveOctopusByPairs() {
 		// Create LiveOctopusPage object
-		// System.setProperty("webdriver.gecko.driver",
-		// "/Users/adriennedelval/Documents");
 		LiveOctopusPage liveOctopusPage = new LiveOctopusPage(driver);
 
 		int i;
 		int a;
 		int b;
-		int c;
-		int d;
-		int e;
 		int sum;
-		int result;
-		String fs;
 
 		String textAreaValue = "";
 		// Calculate the value of each option pair, not including Live Octopus
@@ -62,7 +55,19 @@ public class LiveOctopusTest {
 			}
 		}
 
-		// Calculate using 1+2+2
+	}
+
+	// 1+2+2=5
+	@Test
+	public void CalculateUsing1plus2plus2() {
+		LiveOctopusPage liveOctopusPage = new LiveOctopusPage(driver);
+
+		int a;
+		int b;
+		int c;
+		int result;
+		String fs;
+
 		liveOctopusPage.selectShirtByIndex(1);
 		a = liveOctopusPage.getTextAreaValueAsInt();
 		liveOctopusPage.selectShirtByIndex(2);
@@ -77,7 +82,19 @@ public class LiveOctopusTest {
 
 		Assert.assertTrue(liveOctopusPage.getTextAreaValue() == "00000005");
 
-		// 1+3+1
+	}
+
+	// 1+3+1
+	@Test
+	public void CalculateUsing1Plus3Plus1() {
+		LiveOctopusPage liveOctopusPage = new LiveOctopusPage(driver);
+
+		int a;
+		int b;
+		int c;
+		int result;
+		String fs;
+
 		liveOctopusPage.selectShirtByIndex(1);
 		a = liveOctopusPage.getTextAreaValueAsInt();
 		liveOctopusPage.selectShirtByIndex(3);
@@ -92,20 +109,18 @@ public class LiveOctopusTest {
 
 		Assert.assertTrue(liveOctopusPage.getTextAreaValue() == "00000005");
 
-		// 1+4
-		liveOctopusPage.selectShirtByIndex(1);
-		a = liveOctopusPage.getTextAreaValueAsInt();
-		liveOctopusPage.selectShirtByIndex(4);
-		b = liveOctopusPage.getTextAreaValueAsInt();
+	}
 
-		result = a + b;
+	// (2*2)+1
+	@Test
+	public void CalculateUsingTwice2Plus1() {
+		LiveOctopusPage liveOctopusPage = new LiveOctopusPage(driver);
+		int a;
+		int b;
+		int c;
+		int result;
+		String fs;
 
-		fs = String.format("Calculating using formula: (%s+%s)=%s", a, b, result);
-		System.out.println(fs);
-
-		Assert.assertTrue(liveOctopusPage.getTextAreaValue() == "00000005");
-
-		// (2*2)+1
 		liveOctopusPage.selectShirtByIndex(2);
 		a = liveOctopusPage.getTextAreaValueAsInt();
 		liveOctopusPage.selectShirtByIndex(2);
@@ -120,7 +135,20 @@ public class LiveOctopusTest {
 
 		Assert.assertTrue(liveOctopusPage.getTextAreaValue() == "00000005");
 
-		// (1+2+3+4)/2
+	}
+
+	// (1+2+3+4)/2 = 5
+	@Test
+	public void CalculateUsingSumAllOverTwo() {
+		LiveOctopusPage liveOctopusPage = new LiveOctopusPage(driver);
+		int a;
+		int b;
+		int c;
+		int d;
+		int e;
+		int result;
+		String fs;
+
 		liveOctopusPage.selectShirtByIndex(1);
 		a = liveOctopusPage.getTextAreaValueAsInt();
 		liveOctopusPage.selectShirtByIndex(2);
@@ -138,8 +166,18 @@ public class LiveOctopusTest {
 		System.out.println(fs);
 
 		Assert.assertTrue(liveOctopusPage.getTextAreaValue() == "00000005");
+	}
 
-		// (4/2)+3
+	// (4/2)+3
+	@Test
+	public void Calculate4Over2Plus3() {
+		LiveOctopusPage liveOctopusPage = new LiveOctopusPage(driver);
+		int a;
+		int b;
+		int c;
+		int result;
+		String fs;
+
 		liveOctopusPage.selectShirtByIndex(4);
 		a = liveOctopusPage.getTextAreaValueAsInt();
 		liveOctopusPage.selectShirtByIndex(2);
@@ -153,8 +191,18 @@ public class LiveOctopusTest {
 		System.out.println(fs);
 
 		Assert.assertTrue(liveOctopusPage.getTextAreaValue() == "00000005");
+	}
 
-		// (4%1)+2
+	// (4-1)+2
+	@Test
+	public void CalculateUsing4Minus1Plus2() {
+		LiveOctopusPage liveOctopusPage = new LiveOctopusPage(driver);
+		int a;
+		int b;
+		int c;
+		int result;
+		String fs;
+
 		liveOctopusPage.selectShirtByIndex(4);
 		a = liveOctopusPage.getTextAreaValueAsInt();
 		liveOctopusPage.selectShirtByIndex(1);
@@ -162,30 +210,57 @@ public class LiveOctopusTest {
 		liveOctopusPage.selectShirtByIndex(2);
 		c = liveOctopusPage.getTextAreaValueAsInt();
 
-		result = (a % b) + c;
+		result = (a - b) + c;
 
-		fs = String.format("Calculating using formula: (%s" + "%" + "%s)+%s=%s", a, b, c, result);
+		fs = String.format("Calculating using formula: (%s" + "-" + "%s)+%s=%s", a, b, c, result);
 		System.out.println(fs);
 
 		Assert.assertTrue(liveOctopusPage.getTextAreaValue() == "00000005");
+	}
 
-		// (2*3)-1
+	// (2*3*4)/(2*2)
+	@Test
+	public void CalculateUsing2By3By4Over2By3() {
+		LiveOctopusPage liveOctopusPage = new LiveOctopusPage(driver);
+		int a;
+		int b;
+		int c;
+		int d;
+		int e;
+		int result;
+		String fs;
+
 		liveOctopusPage.selectShirtByIndex(2);
 		a = liveOctopusPage.getTextAreaValueAsInt();
 		liveOctopusPage.selectShirtByIndex(3);
 		b = liveOctopusPage.getTextAreaValueAsInt();
-		liveOctopusPage.selectShirtByIndex(1);
+		liveOctopusPage.selectShirtByIndex(4);
 		c = liveOctopusPage.getTextAreaValueAsInt();
+		liveOctopusPage.selectShirtByIndex(2);
+		d = liveOctopusPage.getTextAreaValueAsInt();
+		liveOctopusPage.selectShirtByIndex(2);
+		e = liveOctopusPage.getTextAreaValueAsInt();
 
-		result = (a * b) - c;
+		result = (a * b * c) / (d * e);
 
-		fs = String.format("Calculating using formula: (%s*%s)-%s=%s", a, b, c, result);
+		fs = String.format("Calculating using formula: (%s*%s*%s)/(%s*%s)=%s", a, b, c, d, e, result);
 		System.out.println(fs);
 
 		Assert.assertTrue(liveOctopusPage.getTextAreaValue() == "00000005");
+	}
 
-		// (1*2*3)-1
-		liveOctopusPage.selectShirtByIndex(4);
+	// (1*2*3)-1
+	@Test
+	public void CalculateUsing1By2By3Minus1() {
+		LiveOctopusPage liveOctopusPage = new LiveOctopusPage(driver);
+		int a;
+		int b;
+		int c;
+		int d;
+		int result;
+		String fs;
+
+		liveOctopusPage.selectShirtByIndex(1);
 		a = liveOctopusPage.getTextAreaValueAsInt();
 		liveOctopusPage.selectShirtByIndex(2);
 		b = liveOctopusPage.getTextAreaValueAsInt();
@@ -200,26 +275,56 @@ public class LiveOctopusTest {
 		System.out.println(fs);
 
 		Assert.assertTrue(liveOctopusPage.getTextAreaValue() == "00000005");
+	}
 
-		// (2*3*4)/(2*2)
+	// (2*3)-1
+	@Test
+	public void CalculateUsing2By3Minus1() {
+		LiveOctopusPage liveOctopusPage = new LiveOctopusPage(driver);
+		int a;
+		int b;
+		int c;
+		int result;
+		String fs;
+
 		liveOctopusPage.selectShirtByIndex(2);
 		a = liveOctopusPage.getTextAreaValueAsInt();
 		liveOctopusPage.selectShirtByIndex(3);
 		b = liveOctopusPage.getTextAreaValueAsInt();
-		liveOctopusPage.selectShirtByIndex(4);
+		liveOctopusPage.selectShirtByIndex(1);
 		c = liveOctopusPage.getTextAreaValueAsInt();
-		liveOctopusPage.selectShirtByIndex(2);
-		d = liveOctopusPage.getTextAreaValueAsInt();
-		liveOctopusPage.selectShirtByIndex(2);
-		e = liveOctopusPage.getTextAreaValueAsInt();
 
-		result = (a * b * c) / (d * e);
+		result = (a * b) - c;
 
-		fs = String.format("Calculating using formula: (%s*%s*%s)/%s*%s=%s", a, b, c, d, e, result);
+		fs = String.format("Calculating using formula: (%s*%s)-%s=%s", a, b, c, result);
 		System.out.println(fs);
 
 		Assert.assertTrue(liveOctopusPage.getTextAreaValue() == "00000005");
+	}
 
+	// (3%2)+4
+	@Test
+	public void CalculateUsin4Minus1Plus2g() {
+		LiveOctopusPage liveOctopusPage = new LiveOctopusPage(driver);
+		int a;
+		int b;
+		int c;
+		int result;
+		String fs;
+
+		liveOctopusPage.selectShirtByIndex(3);
+		a = liveOctopusPage.getTextAreaValueAsInt();
+		liveOctopusPage.selectShirtByIndex(2);
+		b = liveOctopusPage.getTextAreaValueAsInt();
+		liveOctopusPage.selectShirtByIndex(4);
+		c = liveOctopusPage.getTextAreaValueAsInt();
+
+		result = (a % b) + c;
+
+		fs = String.format("Calculating using formula: (%s" + "%" + "%s)+%s=%s", a, b, c, result);
+		System.out.println(fs);
+
+		Assert.assertTrue(liveOctopusPage.getTextAreaValue() == "00000005");
 	}
 
 	@After

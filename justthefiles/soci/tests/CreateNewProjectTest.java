@@ -24,6 +24,8 @@ public class CreateNewProjectTest {
 		driver = new FirefoxDriver();
 	}
 
+	// Creates a new Project and assert that project name created matches the
+	// given
 	@Test
 	public void createNewProject() {
 		// Create CreateProjectPage object
