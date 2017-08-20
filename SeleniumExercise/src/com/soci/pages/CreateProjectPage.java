@@ -129,6 +129,10 @@ public class CreateProjectPage {
 		wait.until(ExpectedConditions.elementToBeClickable(projectCreateButton));
 	}
 
+	public void waitUntilProjectNameFieldAppears(){
+		wait.until(ExpectedConditions.elementToBeClickable(projectName));
+	}
+	
 	public String getProjectName() {
 		return projectName.getText();
 	}

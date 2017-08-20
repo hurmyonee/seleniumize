@@ -3,6 +3,7 @@ package com.soci.tests;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.rules.Timeout;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -50,6 +51,8 @@ public class CreateNewProjectTest {
 
 		testpage.waitUntilProjectCreateButtonClickable();
 		testpage.clickProjectCreateButton();
+		
+		testpage.waitUntilProjectNameFieldAppears();
 
 		foundtext = testpage.getProjectName();
 
